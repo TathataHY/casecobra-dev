@@ -21,7 +21,7 @@ interface Props {
 }
 
 export const DesignPreview = ({ configuration }: Props) => {
-  const { id, imageUrl, color, model, material, finish } = configuration;
+  const { id, croppedImageUrl, color, model, material, finish } = configuration;
 
   const tw = COLORS.find((c) => c.value === color)?.tw;
   const { label: modelPhone } = MODELS.options.find((m) => m.value === model)!;
@@ -85,7 +85,7 @@ export const DesignPreview = ({ configuration }: Props) => {
       <div className="flex flex-col items-center sm:gap-x-6 md:gap-x-8 lg:gap-x-12 md:grid sm:grid-cols-12 sm:grid-rows-1 mt-20 text-sm">
         <div className="md:col-span-4 lg:col-span-3 md:row-span-2 md:row-end-2">
           <Phone
-            imgSrc={imageUrl}
+            imgSrc={croppedImageUrl}
             className={cn(`bg-${tw}`, "max-w-[150px] md:max-w-full")}
           />
         </div>
